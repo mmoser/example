@@ -1,0 +1,41 @@
+<div class="employee-card well well-sm row">
+  <div class="pull-right">
+    <a (click)="edit($event)" aria-label="Edit" title="Edit"><i class="fa fa-pencil"></i></a>
+    <a (click)="remove($event)" class="text-danger" aria-label="Remove" title="Remove"><i class="fa fa-remove"></i></a>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <label class="col-sm-12 text-primary">Employee</label>
+      </div>
+      <div class="info-container">
+        <app-full-name [person]="employeeCost.employee"></app-full-name>
+      </div>
+      <div class="row">
+        <label class="col-sm-12 text-primary">Dependents</label>
+      </div>
+      <div class="info-container">
+        <div *ngIf="!employeeCost.employee.dependents || employeeCost.employee.dependents.length === 0">No dependents</div>
+        <app-full-name *ngFor="let dependent of employeeCost.employee.dependents" [person]="dependent"></app-full-name>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <label class="col-sm-12 text-primary">Yearly Costs</label>
+      </div>
+      <div class="info-container">
+        <app-money-amount [label]="'Employee Cost'" [amount]="employeeCost.employeeCost"></app-money-amount>
+        <app-money-amount [label]="'Dependent Cost'" [amount]="employeeCost.dependentCost"></app-money-amount>
+        <app-money-amount [label]="'Total Cost'" [amount]="employeeCost.totalCost"></app-money-amount>
+      </div>
+      <div class="row">
+        <label class="col-sm-12 text-primary">Paycheck</label>
+      </div>
+      <div class="info-container">
+        <app-money-amount [label]="'Gross'" [amount]="employeeCost.grossPaycheck"></app-money-amount>
+        <app-money-amount [label]="'Deduction'" [amount]="employeeCost.totalCostPerPaycheck"></app-money-amount>
+        <app-money-amount [label]="'Total'" [amount]="employeeCost.paycheckAmountAfterDeduction"></app-money-amount>
+      </div>
+    </div>
+  </div>
+</div>

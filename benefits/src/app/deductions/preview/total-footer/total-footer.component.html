@@ -1,0 +1,22 @@
+<div class="alert alert-info row">
+    <div class="col-sm-6">
+      <div class="row">
+        <label class="col-sm-12 text-primary">Total Yearly Costs</label>
+      </div>
+      <div class="info-container">
+        <app-money-amount [label]="'Employee Cost'" [amount]="deductionsPreview.totalEmployeeCost"></app-money-amount>
+        <app-money-amount [label]="'Dependent Cost'" [amount]="deductionsPreview.totalDependentCost"></app-money-amount>
+        <app-money-amount [label]="'Total Cost'" [amount]="deductionsPreview.totalCostPerYear"></app-money-amount>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <label class="col-sm-12 text-primary">Total Paycheck</label>
+      </div>
+      <div class="info-container">
+        <app-money-amount [label]="'Gross'" [amount]="deductionsPreview.totalGrossPaycheck"></app-money-amount>
+        <app-money-amount [label]="'Deduction'" [amount]="deductionsPreview.totalCostPerPaycheck"></app-money-amount>
+        <app-money-amount [label]="'Total'" [amount]="deductionsPreview.totalPaycheckAfterDeduction"></app-money-amount>
+      </div>
+    </div>
+</div>

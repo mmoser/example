@@ -1,0 +1,10 @@
+<div class="actions pull-right">
+  <button class="btn btn-primary" (click)="addEmployee($event)"><i class="fa fa-plus"></i> Add</button>
+</div>
+<div class="employee-cards-container">
+  <div class="employee-cards">
+    <app-employee-card *ngFor="let employeeCost of employeeCosts$ | async" [employeeCost]="employeeCost"></app-employee-card>
+  </div>
+</div>
+<app-total-footer [deductionsPreview]="deductionsPreview$ | async"></app-total-footer>
+<app-delete-confirmation-modal #deleteModal [title]="title" [text]="text" (deleteConfirmed)="deleteConfirmed($event)"></app-delete-confirmation-modal>

@@ -1,0 +1,12 @@
+.employee-cards-container {
+  margin-top: 44px;
+  overflow: auto;
+  max-height: calc(100vh - 278px);
+  margin-bottom: 20px;
+
+  .employee-cards {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 20px;
+  }
+}
