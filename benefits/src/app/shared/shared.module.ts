@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NameInputComponent } from './components/name-input/name-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WaitingSpinnerComponent } from './components/waiting-spinner/waiting-spinner.component';
+import { AutofocusDirective } from './directives/autofocus.directive';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { WaitingSpinnerComponent } from './components/waiting-spinner/waiting-sp
     MoneyAmountComponent,
     DeleteConfirmationModalComponent,
     NameInputComponent,
-    WaitingSpinnerComponent
+    WaitingSpinnerComponent,
+    AutofocusDirective
   ],
   exports: [
     FullNameComponent,
