@@ -18,6 +18,8 @@ export const initialDeductionsState = {
   }
 } as IDeductionsState;
 
+// Comment out the one above and uncomment this to have values to start with
+//
 //export const initialDeductionsState = {
 //  deductionsPreview: {
 //    employeeCosts: [
