@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
     <ProjectReference Include="..\Core.Services\Core.Services.csproj" />
     <ProjectReference Include="..\Platform.TestHelpers\Platform.TestHelpers.csproj" />
   </ItemGroup>
