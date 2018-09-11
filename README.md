@@ -111,7 +111,7 @@ Open a terminal and change directory to the web site. Run the site using Angular
 
 ```
 cd <root directory>\benefits
-ng run
+ng serve
 ```
 
 Open another terminal and change directory to the API. Run the API using dotnet core CLI.
