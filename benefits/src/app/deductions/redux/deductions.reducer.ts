@@ -7,6 +7,9 @@ import { reduceAddDependent } from "./reducers/add-dependent.reducer";
 import { reduceRemoveDependent } from "./reducers/remove-dependent.reducer";
 import { reduceEditEmployee } from "./reducers/edit-employee.reducer";
 import { reduceEditEmployeeCancelled } from "./reducers/edit-employee-cancelled.reducer";
+import { reduceEditEmployeeUpdated } from './reducers/edit-employee-updated.reducer';
+import { reduceEditDependentUpdated } from './reducers/edit-dependent-updated.reducer';
+import { reduceEditEmployeeCostReceived } from './reducers/edit-employee-cost-received.reducer';
 
 export function reduceDeductionsState(state: IDeductionsState = initialDeductionsState, action) {
   switch (action.type) {
@@ -25,6 +28,12 @@ export function reduceDeductionsState(state: IDeductionsState = initialDeduction
       return reduceEditEmployee(state, action);
     case DeductionsActions.EDIT_EMPLOYEE_CANCELLED:
       return reduceEditEmployeeCancelled(state, action);
+    case DeductionsActions.EDIT_EMPLOYEE_UPDATED:
+      return reduceEditEmployeeUpdated(state, action);
+    case DeductionsActions.EDIT_DEPENDENT_UPDATED:
+      return reduceEditDependentUpdated(state, action);
+    case DeductionsActions.EDIT_EMPLOYEE_COST_RECEIVED:
+      return reduceEditEmployeeCostReceived(state, action);
     default:
       return state;
   }

@@ -1,22 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace Core.API.Controllers
 {
 	[Route("api/[controller]")]
     public class ValuesController : Controller
     {
+		private readonly IBenefitsRepository _benefitsRepository;
+		private readonly ILogger<ValuesController> _logger;
 
-		public ValuesController()
+		public ValuesController(IBenefitsRepository benefitsRepository, ILogger<ValuesController> logger)
 		{
+			_benefitsRepository = benefitsRepository;
+			_logger = logger;
 		}
 
 		// GET api/values
 		[HttpGet]
-		public IEnumerable<string> Get()
+		public IActionResult Get()
 		{
-			return new string[] { "value1", "value2" };
+			_logger.LogInformation("Test");
+			return Ok(_benefitsRepository.GetCompanyCosts(1));
+			//return new string[] { "value1", "value2" };
 		}
 
         // GET api/values/5

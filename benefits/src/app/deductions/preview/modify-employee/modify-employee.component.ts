@@ -16,6 +16,8 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class ModifyEmployeeComponent implements OnInit {
   dependents: FormArray;
+  employee: FormArray;
+
   editForm: FormGroup;
   @select(state => state.deductionsState.deductionsPreview.employeeBeingEdited)
   employeeBeingEdited$: Observable<IEmployee>;
@@ -24,8 +26,9 @@ export class ModifyEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({});
-    this.editForm.addControl('children', new FormArray([]));
+    this.editForm.addControl('employee', new FormArray([]));
     this.editForm.addControl('dependents', new FormArray([]));
+    this.employee = this.editForm.controls['employee'] as FormArray;
     this.dependents = this.editForm.controls['dependents'] as FormArray;
   }
 
@@ -44,4 +47,19 @@ export class ModifyEmployeeComponent implements OnInit {
     this.dependents.at(index).clearValidators();
     this.dependents.removeAt(index);
   }
+
+  save($event) {
+    this.ngRedux.dispatch(this.deductionActions.editEmployeeSaved());
+  }
+
+  employeeUpdated(person: IPerson) {
+    this.ngRedux.dispatch(this.deductionActions.editEmployeeUpdated(person));
+  }
+
+  dependentUpdated(person: IPerson, index) {
+    this.ngRedux.dispatch(this.deductionActions.editDependentUpdated(person, index));
+    this.dependents.at(index).clearValidators();
+    this.dependents.removeAt(index);
+  }
+
 }

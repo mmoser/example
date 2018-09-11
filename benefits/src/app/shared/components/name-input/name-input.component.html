@@ -1,11 +1,11 @@
 <form [formGroup]="nameGroup" class="form-inline" >
   <div class="form-group">
     <label for="firstName">First Name</label>
-    <input type="text" class="form-control" id="firstName" placeholder="First Name" [formControl]="firstName" [class.error]="!firstName.valid">
+    <input type="text" class="form-control" id="firstName" placeholder="First Name" [tabIndex]="getTabIndex(1)" [formControl]="firstName" [class.error]="!firstName.valid" (change)="personChanged()">
   </div>
   <div class="form-group">
     <label for="lastName">Last Name</label>
-    <input type="text" class="form-control" id="lastName" placeholder="Last Name" [formControl]="lastName" [class.error]="!firstName.valid">
-    <a (click)="removeClicked($event)" aria-label="Remove" title="Remove" *ngIf="showRemove"><i class="fa fa-remove text-danger"></i></a>
+    <input type="text" class="form-control" id="lastName" placeholder="Last Name" [tabIndex]="getTabIndex(2)" [formControl]="lastName" [class.error]="!firstName.valid" (change)="personChanged()">
+    <a [tabIndex]="getTabIndex(3)" (click)="removeClicked($event)" aria-label="Remove" title="Remove" *ngIf="showRemove"><i class="fa fa-remove text-danger"></i></a>
   </div>
 </form>

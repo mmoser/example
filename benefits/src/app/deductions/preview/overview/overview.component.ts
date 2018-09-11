@@ -3,7 +3,7 @@ import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import { IEmployeeCost } from '../../../model/employee-cost';
 import { IDeductionsPreview } from '../../../model/deductions-preview';
-import { DeleteConfirmationModalComponent } from '../../../shared/delete-confirmation-modal/delete-confirmation-modal.component';
+import { DeleteConfirmationModalComponent } from '../../../shared/components/delete-confirmation-modal/delete-confirmation-modal.component';
 import { IAppState } from '../../../redux/app.state';
 import { DeductionsActions } from '../../redux/deductions.actions';
 import { initialDeductionsState } from '../../redux/deductions.state';

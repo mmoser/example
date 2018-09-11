@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgReduxRouterModule } from '@angular-redux/router';
 import { DeductionsEpics } from './deductions/redux/deductions.epics';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DeductionsEpics } from './deductions/redux/deductions.epics';
     BrowserModule,
     CoreModule,
     DeductionsModule,
+    HttpClientModule,
     ModalModule.forRoot(),
     NgReduxModule,
     NgReduxRouterModule,
@@ -42,7 +44,9 @@ export class AppModule {
 
     const rootEpic = combineEpics(
       deductionsEpics.addEmployee,
-      deductionsEpics.editEmployee
+      deductionsEpics.editEmployee,
+      deductionsEpics.employeeCostReceived,
+      deductionsEpics.saveEmployee
     );
     const epicMiddleware = createEpicMiddleware();
 

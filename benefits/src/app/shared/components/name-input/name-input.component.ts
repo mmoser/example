@@ -14,11 +14,19 @@ export class NameInputComponent implements OnInit {
   nameGroup: FormGroup;
 
   @Input()
+  tabIndexOffset: number;
+
+  @Input()
   person: IPerson;
+
   @Input()
   children: FormArray;
+
   @Output()
   remove: EventEmitter<null> = new EventEmitter();
+
+  @Output()
+  personUpdated: EventEmitter<IPerson> = new EventEmitter<IPerson>();
 
   showRemove = false;
 
@@ -48,5 +56,16 @@ export class NameInputComponent implements OnInit {
   removeClicked($event) {
     $event.preventDefault();
     this.remove.emit();
+  }
+
+  personChanged($event) {
+    this.personUpdated.emit({
+      firstName: this.firstName.value,
+      lastName: this.lastName.value
+    } as IPerson);
+  }
+
+  getTabIndex(index: number) {
+    return this.tabIndexOffset + index;
   }
 }

@@ -6,22 +6,22 @@
           <label class="col-sm-12 text-primary">Employee</label>
         </div>
         <div class="info-container">
-          <app-name-input [person]="employeeBeingEdited$ | async" [children]="editForm.controls.children"></app-name-input>
+          <app-name-input [tabIndexOffset]="0" [person]="employeeBeingEdited$ | async" [children]="editForm.controls.employee" (personUpdated)="employeeUpdated($event)"></app-name-input>
         </div>
         <div class="row">
           <label class="col-sm-12 text-primary">Dependents</label>
         </div>
         <div class="info-container">
           <ng-container *ngFor="let dependent of (employeeBeingEdited$ | async).dependents; let index = index;">
-              <app-name-input [person]="dependent" [children]="editForm.controls.dependents" (remove)="removeDependent(index)"></app-name-input>
+              <app-name-input [tabIndexOffset]="(index + 1) * 3" [person]="dependent" [children]="editForm.controls.dependents" (remove)="removeDependent(index)" (personUpdated)="dependentUpdated($event, index)"></app-name-input>
           </ng-container>
         </div>
         <div>
-          <button class="btn btn-primary add-dependent" (click)="addDependent($event)"><i class="fa fa-plus"></i> Add Dependent</button>
+          <button class="btn btn-primary add-dependent" (click)="addDependent($event)" tabindex="3000"><i class="fa fa-plus"></i> Add Dependent</button>
         </div>
         <div class="pull-right">
-          <button class="btn btn-default" (click)="cancel($event)">Cancel</button>
-          <button class="btn btn-primary" (click)="add($event)" [disabled]="!editForm.valid">Save</button>
+          <button class="btn btn-default" (click)="cancel($event)" tabindex="3002">Cancel</button>
+          <button class="btn btn-primary" (click)="save($event)" [disabled]="!editForm.valid" tabindex="3001">Save</button>
         </div>
       </div>
     </div>

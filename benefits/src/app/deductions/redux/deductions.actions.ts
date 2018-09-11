@@ -11,7 +11,10 @@ export class DeductionsActions {
   static EDIT_EMPLOYEE = 'DEDUCTIONS_EDIT_EMPLOYEE';
   static ADD_EMPLOYEE = 'DEDUCTIONS_ADD_EMPLOYEE';
   static EDIT_EMPLOYEE_CANCELLED = 'DEDUCTIONS_EDIT_EMPLOYEE_CANCELLED';
+  static EDIT_EMPLOYEE_UPDATED = 'DEDUCTIONS_EDIT_EMPLOYEE_UPDATED';
+  static EDIT_DEPENDENT_UPDATED = 'DEDUCTIONS_EDIT_DEPENDENT_UPDATED';
   static EDIT_EMPLOYEE_SAVED = 'DEDUCTIONS_EDIT_EMPLOYEE_SAVED';
+  static EDIT_EMPLOYEE_COST_RECEIVED = 'DEDUCTIONS_EDIT_EMPLOYEE_COST_RECEIVED';
   static ADD_DEPENDENT = 'DEDUCTIONS_ADD_DEPENDENT';
   static REMOVE_DEPENDENT = 'REMOVE_DEPENDENT';
 
@@ -57,6 +60,27 @@ export class DeductionsActions {
   editEmployeeSaved() {
     return {
       type: DeductionsActions.EDIT_EMPLOYEE_SAVED
+    };
+  }
+
+  editEmployeeUpdated(person: IPerson) {
+    return {
+      type: DeductionsActions.EDIT_EMPLOYEE_UPDATED,
+      payload: { person: person }
+    };
+  }
+
+  editDependentUpdated(person: IPerson, index: number) {
+    return {
+      type: DeductionsActions.EDIT_DEPENDENT_UPDATED,
+      payload: { person: person, index: index }
+    };
+  }
+
+  editEmployeeCostReceived(employeeCost: IEmployeeCost) {
+    return {
+      type: DeductionsActions.EDIT_EMPLOYEE_COST_RECEIVED,
+      payload: { employeeCost: employeeCost }
     };
   }
 
