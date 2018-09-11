@@ -6,6 +6,7 @@ import { DeleteConfirmationModalComponent } from './components/delete-confirmati
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NameInputComponent } from './components/name-input/name-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WaitingSpinnerComponent } from './components/waiting-spinner/waiting-spinner.component';
 
 @NgModule({
   imports: [
@@ -17,13 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FullNameComponent,
     MoneyAmountComponent,
     DeleteConfirmationModalComponent,
-    NameInputComponent
+    NameInputComponent,
+    WaitingSpinnerComponent
   ],
   exports: [
     FullNameComponent,
     MoneyAmountComponent,
     DeleteConfirmationModalComponent,
-    NameInputComponent
+    NameInputComponent,
+    WaitingSpinnerComponent
   ]
 })
 export class SharedModule { }

@@ -2,3 +2,4 @@
 <div class="container content">
   <router-outlet></router-outlet>
 </div>
+<app-waiting-spinner [show]="actionOnGoing$ | async"></app-waiting-spinner>
