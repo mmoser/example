@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { IEmployee } from '../model/employee';
 import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BenefitsCostService {
 
   constructor(private http: HttpClient) { }

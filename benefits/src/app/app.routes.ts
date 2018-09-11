@@ -13,5 +13,5 @@ export const appRoutes: Routes = [
       { path: 'edit-employee', component: ModifyEmployeeComponent }
     ]
   },
-  { path: '', redirectTo: '/deductions/preview', pathMatch: 'full' }
+  { path: '', redirectTo: '/deductions/preview/overview', pathMatch: 'full' }
 ];
